@@ -1,0 +1,13 @@
+Componentes
+
+1 Arduino UNO
+1 Protoboard  //pode ser de qualquer tamanho
+1 Display OLED I2C // pinos(VDD, GND, SCK ou SCL, SDA)
+1 Potenciômetro de de 10K
+2 Botões de quatro terminais
+2 Caps de Botões // opcional
+
+
+bibliotecas utilizadas
+
+display OLED: Adafruit SH1110X, Adafruit GFX, Wire, SPI
