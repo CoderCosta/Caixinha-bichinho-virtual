@@ -1221,7 +1221,7 @@ bool bem = false;
 
 void setup() {
     // Inicializa as variáveis
-    nivelS = 100;
+    nivelS = 60;
     nivelT = 100;
     nivelF = 100;
 
@@ -1239,11 +1239,24 @@ void setup() {
 
 void loop() {
     // Diminuindo os níveis
-    delay(2000); // Pausa de 2 segundos entre cada decremento
-    nivelS -= 3;
-    nivelT -= 3;
-    nivelF -= 3;
+    if (nivelS < 0 && nivelT < 0 && nivelF < 0){
+     // morte();
+    } 
+    delay(500); // Pausa de 2 segundos entre cada decremento
+    nivelS -= 1;
+    nivelT -= 1;
+    nivelF -= 1;
     bem = false;
+  
+ // text display tests
+  display.setTextSize(1);
+  display.setTextColor(SH110X_WHITE);
+  display.setCursor(0, 0);
+  display.println(nivelT);
+  display.setTextColor(SH110X_BLACK, SH110X_WHITE); // 'inverted' text
+  display.display();
+  delay(500);
+  display.clearDisplay();
 
     // Vendo o humor que aparecerá no display
     if (nivelS > 49 && nivelT > 49 && nivelF > 49) {
@@ -1257,7 +1270,7 @@ void loop() {
         } else if (nivelS < nivelF && nivelS < nivelT) {
             triste();
         } else if (nivelF == nivelS && nivelF == nivelT) {
-            raiva();
+            tedio();
         }
     }
 
@@ -1308,48 +1321,86 @@ void feliz() {
 
 void triste() {
     // Implemente a função para exibir tristeza
+    display.clearDisplay();
+    display.drawBitmap(0, 0, triste_sprite1, 128, 64, 1);
+    display.display();
+    delay(40);
+    display.clearDisplay();
+    display.drawBitmap(0, 0, triste_sprite2, 128, 64, 1);
+    display.display();
+    delay(40);
+    display.clearDisplay();
+    display.drawBitmap(0, 0, triste_sprite3, 128, 64, 1);
+    display.display();
+    delay(40);
+    display.clearDisplay();
+    display.drawBitmap(0, 0, triste_sprite4, 128, 64, 1);
+    display.display();
+    delay(40);
+    display.clearDisplay();
+    display.drawBitmap(0, 0, triste_sprite5, 128, 64, 1);
+    display.display();
+    delay(40);
+    display.clearDisplay();
+    display.drawBitmap(0, 0, triste_sprite6, 128, 64, 1);
+    display.display();
+    delay(40);
+    display.clearDisplay();
+    display.drawBitmap(0, 0, triste_sprite7, 128, 64, 1);
+    display.display();
+    delay(40);
+   
 }
 
 void raiva() {
-    // Implemente a função para exibir raiva
+   
+    display.clearDisplay();
+    display.drawBitmap(0, 0, bravo_sprite2, 128, 64, 1);
+    display.display();
+    delay(50);
+    display.clearDisplay();
+    display.drawBitmap(0, 0, bravo_sprite3, 128, 64, 1);
+    display.display();
+    delay(50);
 }
 
 void tedio() {
     // Desenha os bitmaps de tédio
+    delay(40);
     display.clearDisplay();
     display.drawBitmap(0, 0, tedio_sprite1, 128, 64, 1);
     display.display();
-    delay(50);
+    delay(40);
     display.clearDisplay();
     display.drawBitmap(0, 0, tedio_sprite2, 128, 64, 1);
     display.display();
-    delay(50);
+    delay(40);
     display.clearDisplay();
     display.drawBitmap(0, 0, tedio_sprite3, 128, 64, 1);
     display.display();
-    delay(50);
+    delay(40);
     display.clearDisplay();
     display.drawBitmap(0, 0, tedio_sprite2, 128, 64, 1);
     display.display();
-    delay(50);
+    delay(40);
     display.clearDisplay();
     display.drawBitmap(0, 0, tedio_sprite1, 128, 64, 1);
     display.display();
-    delay(50);
+    delay(40);
     display.clearDisplay();
     display.drawBitmap(0, 0, tedio_sprite4, 128, 64, 1);
     display.display();
-    delay(50);
+    delay(40);
     display.clearDisplay();
     display.drawBitmap(0, 0, tedio_sprite5, 128, 64, 1);
     display.display();
-    delay(50);
+    delay(40);
     display.clearDisplay();
     display.drawBitmap(0, 0, tedio_sprite4, 128, 64, 1);
     display.display();
-    delay(50);
+    delay(40);
     display.clearDisplay();
     display.drawBitmap(0, 0, tedio_sprite1, 128, 64, 1);
     display.display();
-    delay(50);
+  
 }
